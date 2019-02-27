@@ -81,7 +81,7 @@ function sendMailWithWP ($to, $subject, $message) {
 }
 
 add_action( 'rest_api_init', function () {
-    register_rest_route( 'contact/v2', '/send', array(
+    register_rest_route( 'sendform/v1', '/send', array(
         'methods' => 'POST',
         'callback' => 'sendMailWithWP'
     ));
