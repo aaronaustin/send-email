@@ -76,9 +76,13 @@ GitHub Plugin URI: https://github.com/aaronaustin/send-email
 function sendMailWithWP () {
     $request->get_body();
     $sent = wp_mail('aaron@lexcentral.com', 'test', strip_tags('What?'));
-    if($sent) echo 'success'; //message sent!
-    else echo 'failed'; //message wasn't sent
-    return true;
+    // if($sent) echo 'success'; //message sent!
+    // else echo 'failed'; //message wasn't sent
+    $response = array(
+        'status' => 200, 
+        'message' => 'working', 
+    );
+    return json_encode($response);
 }
 
 add_action( 'rest_api_init', function () {
