@@ -78,7 +78,7 @@ function sendMailWithWP () {
     $sent = wp_mail('aaron@lexcentral.com', 'test', strip_tags('What?'));
     if($sent) echo 'success'; //message sent!
     else echo 'failed'; //message wasn't sent
-    return $sent;
+    // return $sent;
 }
 
 add_action( 'rest_api_init', function () {
