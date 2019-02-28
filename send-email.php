@@ -1,7 +1,7 @@
 <?php
 /*Plugin Name: Send Email
 Description: Send email from api.
-Version: 1.1.0
+Version: 1.1.1
 License: GPLv2
 GitHub Plugin URI: https://github.com/aaronaustin/send-email
 */
@@ -81,6 +81,7 @@ function sendMailWithWP (WP_REST_Request $request) {
     $response = array(
         'status' => 200, 
         'message' => 'working', 
+        'request' => $request,
     );
     return json_encode($response);
 }
