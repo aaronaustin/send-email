@@ -1,7 +1,7 @@
 <?php
 /*Plugin Name: Send Email
 Description: Send email from api.
-Version: 1.1.2
+Version: 1.1.4
 License: GPLv2
 GitHub Plugin URI: https://github.com/aaronaustin/send-email
 */
@@ -75,7 +75,7 @@ GitHub Plugin URI: https://github.com/aaronaustin/send-email
 // }
 function sendMailWithWP (WP_REST_Request $request) {
     // $request;
-    $sent = wp_mail('aaron@lexcentral.com', 'test', strip_tags('What?'));
+    $sent = wp_mail($request['to'], $request['subject'], strip_tags($request['message']));
     // // if($sent) echo 'success'; //message sent!
     // // else echo 'failed'; //message wasn't sent
     $response = array(
