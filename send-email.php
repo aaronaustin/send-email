@@ -1,7 +1,7 @@
 <?php
 /*Plugin Name: Send Email
 Description: Send email from api.
-Version: 1.2.2
+Version: 1.2.4
 License: GPLv2
 GitHub Plugin URI: https://github.com/aaronaustin/send-email
 */
