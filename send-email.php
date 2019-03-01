@@ -1,13 +1,17 @@
 <?php
 /*Plugin Name: Send Email
 Description: Send email from api.
-Version: 1.1.7
+Version: 1.1.8
 License: GPLv2
 GitHub Plugin URI: https://github.com/aaronaustin/send-email
 */
 
 function sendMailWithWP (WP_REST_Request $request) {
     $sent = wp_mail($request['to'], $request['subject'], strip_tags($request['message']));
+    $to = get_field('contact_form_to', 'option');
+    $email = $request['email'];
+    $subject = $request['subject'];
+    $headers = 'From: '. $to . "\r\n" . 'Reply-To: ' . $email . "\r\n";
 
     $status = $sent ? 200 : 404;
     $response_message = $sent ? 'Success' : 'Message did not send';
