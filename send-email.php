@@ -1,7 +1,7 @@
 <?php
 /*Plugin Name: Send Email
 Description: Send email from api.
-Version: 1.1.9
+Version: 1.2.0
 License: GPLv2
 GitHub Plugin URI: https://github.com/aaronaustin/send-email
 */
@@ -11,7 +11,7 @@ function sendMailWithWP (WP_REST_Request $request) {
     $name = $request['name'];
     $email = $request['email'];
     $subject = $request['subject'];
-    $headers = 'From: '. $to . "\r\n" . 'Reply-To: ' . $email . "\r\n";
+    $headers = 'From: '. 'info@lexcentral.com' . "\r\n" . 'Reply-To: ' . $email . "\r\n";
     $message = $request['message'] . "\r\n" . "Message From: " . $name . "<" . $email . ">";
     
     $sent = wp_mail($to, $subject, strip_tags($message));
@@ -22,7 +22,8 @@ function sendMailWithWP (WP_REST_Request $request) {
     $response = array(
         'status' => $status, 
         'message' => $response_message, 
-        'request' => $sent
+        'request' => $sent,
+        'details' => $to
     );
     return json_encode($response);
 }
