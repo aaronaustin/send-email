@@ -12,7 +12,7 @@ function sendMailWithWP (WP_REST_Request $request) {
     $email = $request['email'];
     $subject = $request['subject'];
     $headers = 'From: '. 'info@lexcentral.com' . "\r\n" . 'Reply-To: ' . $email . "\r\n";
-    $message = $request['message'] . "\r\n" . "Message From: " . $name . "\<;" . $email . "\>";
+    $message = $request['message'] . "\r\n" . "Message From: " . $name . " " . $email;
     
     $sent = wp_mail($to, $subject, strip_tags($message));
     
